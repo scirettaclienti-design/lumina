@@ -9,36 +9,40 @@ const modules = [
     {
         id: "play",
         title: "Play",
-        subtitle: "Gamification Engine",
-        desc: "Engagement attivo.",
-        longDesc: "Trasforma l'evento in un terreno di gioco. Le meccaniche di gamification non sono solo divertimento, sono strumenti di ritenzione e focalizzazione.",
+        subtitle: "Engagement attivo",
+        desc: "Coinvolgimento, energia, dinamica di gruppo.",
+        longDesc: "Team game collaborativi, giochi di ruolo esperienziali, challenge creative e gamification aziendale personalizzata.",
+        activities: ["Team game collaborativi", "Giochi di ruolo", "Challenge creative", "Attività teatrali", "Gamification aziendale", "Problem-solving game", "Ice-breaker evoluti"],
         color: "#00f0ff",
         Shape: "PlayShape"
     },
     {
         id: "sense",
         title: "Sense",
-        subtitle: "Atmospheric Intelligence",
-        desc: "Impatti sensoriali.",
-        longDesc: "L'ambiente che respira con te. Luci, suoni e temperature che cambiano in base al sentiment della sala tracciato in tempo reale.",
+        subtitle: "Emozione e Relazione",
+        desc: "Emozione, consapevolezza, relazione.",
+        longDesc: "Esperienze sensoriali guidate, percorsi di ascolto, attività artistiche emozionali e connessione profonda in natura.",
+        activities: ["Esperienze sensoriali", "Percorsi consapevolezza", "Attività artistiche", "Esperienze in natura", "Breathwork", "Storytelling personale", "Laboratori di empatia"],
         color: "#d946ef",
         Shape: "SenseShape"
     },
     {
         id: "learn",
         title: "Learn",
-        subtitle: "Adaptive Knowledge",
-        desc: "Formazione liquida.",
-        longDesc: "Contenuti che si adattano a chi ascolta. L'AI analizza il livello di comprensione e modifica la complessità delle slide in tempo reale.",
+        subtitle: "Nuovi Mindset",
+        desc: "Apprendimento applicativo e nuovi mindset.",
+        longDesc: "Workshop di decision making, formazione soft skill applicata, leadership esperienziale e laboratori di problem solving reale.",
+        activities: ["Corso Esperienziale AI", "Workshop decision making", "Laboratori problem solving", "Formazione soft skill", "Leadership esperienziale", "Comunicazione efficace", "Innovazione"],
         color: "#f59e0b",
         Shape: "LearnShape"
     },
     {
         id: "immersive",
         title: "Immersive",
-        subtitle: "Spatial Computing",
-        desc: "Oltre la fisica.",
-        longDesc: "Il confine tra reale e digitale scompare. Oggetti olografici e portali per il metaverso aziendale direttamente nello spazio fisico.",
+        subtitle: "Esperienze Trasformative",
+        desc: "Esperienze memorabili e trasformative.",
+        longDesc: "Viaggi brevi esperienziali, simulazioni immersive, percorsi narrativi e attività ibride ad alto impatto emotivo.",
+        activities: ["Esperienze immersive guidate", "Attività sportive", "Percorsi multi-step", "Esperienze narrative", "Viaggi brevi", "Simulazioni immersive", "Eventi ad alto impatto"],
         color: "#10b981",
         Shape: "ImmersiveShape"
     },
@@ -131,6 +135,19 @@ export default function SystemScrollStory() {
                                     <p className="text-lg text-gray-400 leading-relaxed max-w-lg">
                                         {mod.longDesc}
                                     </p>
+
+                                    {/* Activities Grid */}
+                                    <div className="mt-8 flex flex-wrap gap-2 max-w-xl">
+                                        {mod.activities.map((act, idx) => (
+                                            <span
+                                                key={idx}
+                                                className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] md:text-xs uppercase tracking-wider text-white/80 hover:bg-white/10 transition-colors cursor-default"
+                                                style={{ borderColor: mod.color + '40' }}
+                                            >
+                                                {act}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>

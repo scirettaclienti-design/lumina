@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -7,7 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Hero() {
     const containerRef = useRef(null);
     const textRef = useRef(null);
-    const [showModal, setShowModal] = useState(false);
 
     // Split text for animation
     const title = "LUMINA";
@@ -69,7 +69,7 @@ export default function Hero() {
                             </h1>
 
                             {/* XP Behind */}
-                            <span className="hero-xp absolute top-1/2 left-1/2 -translate-x-1/4 -translate-y-1/2 text-[10rem] md:text-[16rem] font-bold italic text-white/5 -z-10 whitespace-nowrap select-none mix-blend-overlay pr-24">
+                            <span className="hero-xp absolute top-1/2 left-1/2 -translate-x-1/4 -translate-y-1/2 text-[10rem] md:text-[16rem] font-bold italic text-white/10 -z-10 whitespace-nowrap select-none mix-blend-overlay pr-24">
                                 XP
                             </span>
                         </div>
@@ -112,39 +112,7 @@ export default function Hero() {
                 </div>
             </section>
 
-            {/* Builder Modal */}
-            {showModal && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-                    <div
-                        className="absolute inset-0 bg-black/80 backdrop-blur-xl"
-                        onClick={() => setShowModal(false)}
-                    />
-                    <div className="relative w-full max-w-4xl bg-[#0a0a0a] border border-white/10 rounded-3xl p-10 md:p-16 shadow-[0_0_100px_rgba(112,0,255,0.2)] animate-in zoom-in-95 duration-300">
-                        <button
-                            onClick={() => setShowModal(false)}
-                            className="absolute top-6 right-6 p-2 hover:bg-white/10 rounded-full transition-colors"
-                        >
-                            ✕
-                        </button>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-2">Configura Evento</h2>
-                        <p className="text-gray-400 mb-8">Seleziona la tipologia per inizializzare il motore XP.</p>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            {[
-                                { title: 'Corporate Meeting', icon: '🏢' },
-                                { title: 'Product Launch', icon: '🚀' },
-                                { title: 'Brand Experience', icon: '✨' }
-                            ].map((item) => (
-                                <div key={item.title} className="group relative h-48 border border-white/10 rounded-2xl flex flex-col items-center justify-center bg-white/5 hover:bg-white/10 hover:border-accent cursor-pointer transition-all overflow-hidden">
-                                    <div className="text-4xl mb-4 transform group-hover:scale-125 transition-transform duration-300">{item.icon}</div>
-                                    <span className="text-lg font-bold">{item.title}</span>
-                                    <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            )}
         </>
     );
 }
